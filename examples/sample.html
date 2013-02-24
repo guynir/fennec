@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<!-- Load dependencies -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+
+	<!-- Load fuzzy-fenek library -->
+	<script type="text/javascript" src="../fuzzy-fenek.js"></script>
+
+	<script type="text/javascript">
+		// Reference to agent.
+		var agent;
+
+		//
+		// Callback after page is loaded.
+		//
+		$( document ).ready(function() {
+			// Create a new template agent.
+			agent = new TemplateAgent(".container");
+
+			// Refresh the template. If we are not doing so, we are expected to see the template's meta-code, such as {{name}}, {{#if}}, ....
+			// Try to comment this line, refresh the page and see what comes up.
+			agent.refresh();
+		});
+
+		/**
+		 * Apply a new name.
+		 * @param theName - The new name to apply.
+		 */
+		function applyNewName(theName) {
+			// Tell agent to apply a new value and refresh.
+			agent.applyAndRefresh({name: theName});
+		}
+	</script>
+
+	<style type="text/css">
+		.container {
+			display: inline-block;
+			padding: 40px 40px 40px 40px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<span>
+			{{#if name}}
+				Hello {{name}} very pleased to meet you !!!
+			{{else}}
+				Hello Mr., I don't know your name.
+			{{/if}}
+		</span>
+		<form id="form">
+			<label>
+				{{#if name}}
+				You can change your name:
+				{{else}}
+				Please tell me your name:
+				{{/if}}
+			</label>
+			<input type="text" id="name">
+			<input type="button" onclick="applyNewName(this.form.name.value)" value="Change">
+		</form>
+	</div>
+</body>
+
+</html>
