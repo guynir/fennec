@@ -78,6 +78,21 @@ Using such practice allow the developer to "see the entire markup" during his or
 Moreover, this solution also "ties" between a template and its location in the page. We do not need to
 manually generate markup and manipulate the DOM; the library does that automatically.
 
+##The library specifications
+This section will provide (very soon, I hope) a thorough technical description of the library.
+
+##The 'TODO' section
+What to expect in (hopefully) near future:
+
+* Extend library to support more template-engine libraries beside Handlebars.
+* Extend library to support more DOM manipulation libraries beside jQuery.
+* Remove dependency on [underscore-js](http://underscorejs.org).
+* Provide unit-tests.
+* Add more examples.
+* Document 'best practices' - DOs and DONTs.
+* Availability of this library on CDNs, such as [Google Hosted Libraries](https://developers.google.com/speed/libraries/) and [CloudFlare](http://cdnjs.com/).
+* A decent site on Github pages.
+
 
 
 
