@@ -46,9 +46,9 @@ splitting template from the body itself:
 </body>
 ```
 
-While this practice is very useful (and even _THE_ preferred one) in some cases, it is hard to apply
-such a solution on an entire page. The markup than becomes unreadable and ambiguous and results in a code
-that is hard to maintain.
+While this practice is very useful and even _THE_ preferred one in some cases, it is hard to apply
+such a solution on an entire page. The markup is than split to multiple snippets which becomes unreadable
+and ambiguous resulting in a code that is hard to maintain.
 
 This library provides a different practice and technical solution. It allows a markup developer to apply
 inline templating meta-elements to simplify the work:
@@ -72,3 +72,13 @@ inline templating meta-elements to simplify the work:
 	</div>
 </body>
 ```
+
+Using such practice allow the developer to "see the entire markup" during his or her development cycle.
+
+Moreover, this solution also "ties" between a template and its location in the page. We do not need to
+manually generate markup and manipulate the DOM; the library does that automatically.
+
+
+
+
+
