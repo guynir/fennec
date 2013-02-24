@@ -5,4 +5,4 @@ Client-side (Javascript) library that prolificates the work with templating fram
 
 ##Notice
 
-I'm currently setting this repository up. Please come back in a few days to have access to more resources of this project.
+I'm currently setting up this repository. Please come back in a few days to have access to more resources of this project.
