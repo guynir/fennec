@@ -40,20 +40,16 @@ TemplateAgent.prototype.renderWith = function (context) {
 }
 
 /**
- * Refresh the template using the internal model.
- */
-TemplateAgent.prototype.refresh = function() {
-    this.renderWith(this.model);
-}
-
-/**
- * Apply a new set of values to the model and refresh.
+ * Refresh the template. The argument 'model' is optional. If specified, the values from this model is copied into the agent's internal model.
  *
- * @param model Collection of properties to add to the internal model.
+ * @model Optional model to apply.
  */
-TemplateAgent.prototype.applyAndRefresh = function(model) {
-    _.extend(this.model, model);
-    this.refresh();
+TemplateAgent.prototype.refresh = function(model) {
+    if (model != undefined && model != null) {
+        _.extend(this.model, model);
+    }
+
+    this.renderWith(this.model);
 }
 
 /**
