@@ -10,7 +10,7 @@ Client-side templating in HTML world becomes more and more popular. Libraries su
 [Handlerbars](http://handlebarsjs.com/) and [dust.js](http://akdubya.github.com/dustjs/) are just a few
 to mention of a larger list of templating solutions.
 
-##What _funny-fenek_ provides?
+##What _fuzzy-fenek_ provides?
 
 Most 'best practices' and even the tutorials themselves of main-stream templating frameworks suggest
 splitting template from the body itself:
