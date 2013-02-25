@@ -3,6 +3,12 @@ fuzzy-fenek
 
 Client-side (Javascript) library that prolificates the work with templating frameworks.
 
+##Table of contents
+* [Background](#background)
+* [What _fuzzy-fenek_ is all about](#what-fuzzy-fenek-is-all-about)
+* [The library specifications](#the-library-specifications)
+* [The 'TODO' section](#the-todo-section)
+
 ##Background
 
 Client-side templating in HTML world becomes more and more popular. Libraries such as
@@ -10,7 +16,7 @@ Client-side templating in HTML world becomes more and more popular. Libraries su
 [Handlerbars](http://handlebarsjs.com/) and [dust.js](http://akdubya.github.com/dustjs/) are just a few
 to mention of a larger list of templating solutions.
 
-##What _fuzzy-fenek_ provides?
+##What _fuzzy-fenek_ is all about?
 
 Most 'best practices' and even the tutorials themselves of main-stream templating frameworks suggest
 splitting template from the body itself:
