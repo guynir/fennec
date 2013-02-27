@@ -169,15 +169,15 @@ same, like the example [above](#usage).
 The `model` parameter is optional. It allows the user to specify an external model. If this parameter is not specified,
 `TemplateBinder` will create an internal model.
 
-###update() method
-The update method does 2 things:
+###refresh() method
+The `refresh(model)` method does 2 things:
 * Apply a new set of values into the model. This action allows the binder to 'remember' values of each field.
 * Renders template and push it into the target DOM element.
 
 ```html
 <head>
 	<script type="text/javascript">
-		var binder = new TemplateBinder("<span>{{a}} + {{b}} = {{a + b}}", "#resultDiv");
+		var binder = new TemplateBinder(_t("<span>{{a}} + {{b}} = {{a + b}}"), "#resultDiv");
 		
 		// This will yield "30" (10 + 20).
 		binder.refresh({ a : "10", b : "20" });
