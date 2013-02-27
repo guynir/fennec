@@ -68,15 +68,33 @@ have someone do it for you ?
 elemet you would like to place the generated contents.
 
 ```html
-<script type="text/javascript">
-	var template = "Hello Mr. {{ name }}";
-	binder = new TemplateBinder(_t(template), "body");
-	binder.refresh( { name: "Guy" } );
-</script>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+	<script type="text/javascript" src="fuzzy-fenek.js"></script>
+
+	<script type="text/javascript">
+		var template = "Hello Mr. {{ name }}";
+		binder = new TemplateBinder(_t(template), "body");
+		binder.refresh( { name: "Guy" } );
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>
 ```
 
-Using the above code snipper in your page, you can issue a call to _binder_ as many time as you want. Each time will
-generate a new contents from the original template and inject it directly to the `body` element.
+The above code snippet, binds the template 'Hello Mr. {{ name }}' to the `body` element. Each time the method `refresh()`
+is invoked, the template is rendered and the result is placed `body`. You can call as many times as you like to
+`refresh()`, each time with a different name - an action that will replace each time the contents of `body` with
+a new generated content.
 
 ##The library specifications
 ###Dependencies
