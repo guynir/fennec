@@ -1,5 +1,5 @@
 //
-//		fuzzy-fenek V0.4
+//		fuzzy-fenek V0.5
 //		Copyright (c) 2013 by Guy Raz Nir
 //		This software is distributed under MIT license.
 //
@@ -24,7 +24,13 @@
  */
 function TemplateBinder(source, target, model) {
 
+    // Library version.
+    this.VERSION = '0.5';
+    
+    // Holds the 'target' element.
     this.target = null;
+    
+    // Internal model.
     this.model = {};
 
     // Check that caller specified a source element.
