@@ -90,7 +90,7 @@ elemet you would like to place the generated contents.
 </html>
 ```
 
-The above code snippet, binds the template 'Hello Mr. {{ name }}' to the `body` element. Each time the method `refresh()`
+The above code snippet binds the template **'Hello Mr. {{ name }}'** to the `body` element. Each time the method `refresh()`
 is invoked, the template is rendered and the result is placed in the `body` element. You can call as many times as you like to
 `refresh()`, each time with a different name - an action that will replace each time the contents of `body` with
 a new generated content.
@@ -194,7 +194,7 @@ properties. For such case, `TemplateBinder` provide `renderWith(model)` method t
 `model`, regardlress of previous values.
 
 ###Helper functions
-This library comes with helper function `_t(str)` which translates a simple string-based template to jQuery object.
+This library comes with helper function `_t(str)` which translates a simple string template to a jQuery object.
 
 This allows a caller to specify an inline template, i.e.:
 ```html
