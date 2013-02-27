@@ -62,9 +62,9 @@ A typical flow of using client-side templating is:
 This typical flow occurs for almost all cases of using client-side templating libraries. Wouldn't it be simpler to
 have someone do it for you ?
 
-##What _fuzzy-fenek_ is all about?
+##What **Fuzzy Fenek** is all about?
 
-_Fuzzy Fenek_ is a lightweight Javascript library that allows you to tie between a template, a model and a target DOM
+**Fuzzy Fenek** is a lightweight Javascript library that allows you to tie between a template, a model and a target DOM
 elemet you would like to place the generated contents.
 
 ```html
