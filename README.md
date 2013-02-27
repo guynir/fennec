@@ -11,7 +11,7 @@ Client-side (Javascript) library that prolificates the work with templating fram
 	* [Usage](#usage)
 	* [TemplateBinder](#templatebinder)
 	* [refresh() method](#refresh-method)
-	* [refreshWith() method](#refreshwith-method)
+	* [renderWith() method](#renderwith-method)
 * [The 'TODO' section](#the-todo-section)
 
 ##Background
