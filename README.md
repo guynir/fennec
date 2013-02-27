@@ -154,18 +154,35 @@ The `model` parameter is optional. It allows the user to specify an external mod
 
 ###update() method
 The update method does 2 things:
-* Apply a new set of values into the model.
+* Apply a new set of values into the model. This action allows the binder to 'remember' values of each field.
 * Renders template and push it into the target DOM element.
 
-```javascript
+```html
 <head>
-	var userInformation = {
-		firstName: 'James',
-		lastName: 'Bond',
-		codeName: '007',
-	}
+	<script type="text/javascript">
+		var binder = new TemplateBinder("<span>{{a}} + {{b}} = {{a + b}}", "#resultDiv");
+		
+		// This will yield "30" (10 + 20).
+		binder.refresh({ a : "10", b : "20" });
+
+		// This will yield "40" (20 + 20) because the binder 'remembers' the previous value of 'b'.
+		binder.refresh({ a : "20" });
+	</script>
+</head>	
 ```
 
+###renderWith() method
+There are times when a user might prefer to not use the internal model facility and provide each time the full set of
+properties. For such case, `TemplateBinder` provide `renderWith(model)` method that renders the template with the given
+`model`, regardlress of previous values.
+
+###Helper functions
+This library comes with helper function `_t(str)` which translates a simple string-based template to jQuery object.
+
+This allows a caller to specify an inline template, i.e.:
+```html
+var binder = new TemplateBinder(_t("Hello, {{name}}", "#welcomeDiv");
+```
 
 ##The 'TODO' section
 What to expect in (hopefully) near future:
