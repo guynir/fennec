@@ -16,10 +16,14 @@ Client-side (Javascript) library that prolificates the work with templating fram
 
 ##Background
 
-Client-side templating in HTML world becomes more and more popular. Libraries such as
-[Mustachae](http://mustache.github.com/), [underscore.js](http://www.underscorejs.org),
-[Handlerbars](http://handlebarsjs.com/) and [dust.js](http://akdubya.github.com/dustjs/) are just a few
-to mention of a larger list of templating solutions.
+Most client-side templating libraries such as [Mustachae](http://mustache.github.com/),
+[underscore.js](http://www.underscorejs.org), [Handlerbars](http://handlebarsjs.com/) and
+[dust.js](http://akdubya.github.com/dustjs/) (to name just a few) allow you to provide an arbirary-length string
+ containing the template and generate a output text as response:
+ 
+```html
+<head></head>
+```
 
 ##What _fuzzy-fenek_ is all about?
 
