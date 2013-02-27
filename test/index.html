@@ -1,0 +1,84 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Fuzzy Fenek unit test suite</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="qunit-1.11.0.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="qunit-1.11.0.js"></script>
+	<script type="text/javascript" src="handlebars.js"></script>
+	<script type="text/javascript" src="tests.js"></script>
+	<script type="text/javascript" src="../fuzzy-fenek.js"></script>
+
+	<style type="text/css">
+		#qunit-header {
+			font-family: 'Libre Baskerville', serif;
+		}
+
+		#qunit-tests {
+			font-size: 16px;
+			font-family: 'Libre Baskerville', serif;
+		}
+
+		#qunit-tests li {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		#qunit-tests li .runtime {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		#qunit-tests li a {
+			color: #999999;
+		}
+
+		#qunit-tests .pass {
+			background-color: #404040;
+		}
+
+		#qunit-tests .pass .test-name {
+			color: #eeeeee;
+		}
+
+		#qunit-tests b.passed {
+			color: #00d000;
+		}
+
+		#qunit-tests b.failed {
+			color: #c00000;
+		}
+
+		#qunit-tests b.counts {
+			color: #bbbbbb;
+		}
+
+		strong {
+			font-weight: normal;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+	<!-- DIV elements inside this block are intended for testings and should not appear on screen -->
+	<div style="display: none">
+		<div id="template-block">
+			{{message}}
+		</div>
+
+		<div id="target-block">
+		</div>
+
+	</div>
+
+</body>
+
+</html>

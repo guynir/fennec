@@ -5,12 +5,21 @@
 //
 
 /**
- * Object definition and constructor for template handler. A handler is associated with a document element
- * (indirectly) which is a template by itself.
+ * Template binder tie between a template and an actual DOM element. When a caller invokes a refresh or render request,
+ * the template is processed, a new content is generated and inserted inside a target DOM element.
  *
- * @param elementRef Reference to a DOM (e.g.: #header, .title, li, ...) element that should become template.
- * @param model An optional model to associate with agent. If this value is undefined or null, an internal model
- * is generated for this agent.
+ * The constructor have 3 parameters:
+ *  - source:   Represents the source from-which template is read. If this parameter is string,
+ *              it is treated as jQuery selector and converted to actual jQuery object.
+ *  - target:   Optional parameter that represents a target DOM element to place information in.
+ *              If this parameter is omitted or is null, 'source' is assigned to it. In such case,
+ *              the same DOM element is treated both as a template and a target container.
+ *  - model:    Optional parameter that represents a model (context); if this parameter is not specified,
+ *              an internal model is allocated for the binder.
+ *
+ * @param source [required] Source to fetch template from.
+ * @param target [optional] Target DOM element selector where generated contents are placed.
+ * @param model [optional] An external model to work with.
  * @constructor
  */
 function TemplateBinder(source, target, model) {
@@ -19,7 +28,7 @@ function TemplateBinder(source, target, model) {
     this.model = {};
 
     // Check that caller specified a source element.
-    if (!isUndefined(source)) {
+    if (isUndefined(source)) {
         throw "Missing source element.";
     }
 
@@ -35,9 +44,17 @@ function TemplateBinder(source, target, model) {
     }
 
     // If target is not specified, it is the same as the source.
-    if (isUndefined(target)) {
+    var targetUndefined = isUndefined(target);
+    if (targetUndefined) {
         // If 'target' is undefined, it should be the same as 'source'. This is part of our specification.
         this.target = source;
+
+        // Validate that 'target' parameter is an actual element and not inline-generated jQuery object (object that
+        // contains markup but does not actually represents an existing DOM element).
+        var targetTagName = this.target.parent().prop('tagName');
+        if (isUndefined(targetTagName)) {
+            throw "'target' must be specified; 'source' is an inline-template.";
+        }
     } else if (isString(target)) {
         // 'target' is of type string. We assume it is an element that actually exist.
         this.target = $(target);
@@ -55,39 +72,17 @@ function TemplateBinder(source, target, model) {
         }
 
         // Make sure our 'target' reference a single DOM element.
-        if (targetTagName.length > 1) {
+        if (this.target.length > 1) {
             throw "'target' element reference more than 1 DOM element.";
         }
     }
 
-    // Fetch the original markup and compile a template function.
+    // Compile a template function.
     var contents = source.html();
     this.template = Handlebars.compile(contents);
 
     // If model is valid, use it. Otherwise, create an internal model.
     this.model = !isUndefined(model) ? model : {};
-
-    /**
-     * Check if a given object is either undefined or null.
-     *
-     * @param obj Object to evaluate.
-     *
-     * @return 'true' if object is undefined, 'false' if object reference an actual value.
-     */
-    function isUndefined(obj) {
-        return obj == undefined || obj == null;
-    }
-
-    /**
-     * Check if a given object is a string.
-     *
-     * @param obj Object to evaluate.
-     *
-     * @return 'true' if 'obj' is a primitive string, 'false' otherwise.
-     */
-    function isString(obj) {
-        return typeof obj == 'string';
-    }
 }
 
 /**
@@ -103,7 +98,8 @@ TemplateBinder.prototype.renderWith = function (context) {
     $(this.target).empty();
 
     // Insert the produced markup to the target element.
-    $(this.elementRef).append( $(produced) );
+    console.log("Produced code: " + produced);
+    $(this.target).append( produced );
 }
 
 /**
@@ -115,7 +111,7 @@ TemplateBinder.prototype.refresh = function(model) {
     // If model is a non-empty, copy its fields into our own model.
     if (!isUndefined(model)) {
         for (var property in model) {
-          this.model[prop] = model[prop];
+          this.model[property] = model[property];
         }
     }
 
@@ -143,5 +139,39 @@ TemplateBinder.prototype.validateRequirements = function() {
     return success;
 }
 
-function BinderFactory() {
+/**
+ * Check if a given object is either undefined or null.
+ *
+ * @param obj Object to evaluate.
+ *
+ * @return 'true' if object is undefined, 'false' if object reference an actual value.
+ */
+function isUndefined(obj) {
+    return obj == undefined || obj == null;
+}
+
+/**
+ * Check if a given object is a string.
+ *
+ * @param obj Object to evaluate.
+ *
+ * @return 'true' if 'obj' is a primitive string, 'false' otherwise.
+ */
+function isString(obj) {
+    return typeof obj == 'string';
+}
+
+/**
+ * Generates a jQuery object holding a template for a given string.
+ *
+ * @param template String to convert to a jQuery object.
+ *
+ * @return jQuery object holding a template contents.
+ */
+function t(template) {
+    if (!isString(template)) {
+        throw "Parameter is not of type 'string'.";
+    }
+
+    return $("<span>" + template + "</span>");
 }
