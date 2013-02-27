@@ -19,7 +19,7 @@ Client-side (Javascript) library that prolificates the work with templating fram
 Most client-side templating libraries such as [Mustache](http://mustache.github.com/),
 [underscore.js](http://www.underscorejs.org), [Handlerbars](http://handlebarsjs.com/) and
 [dust.js](http://akdubya.github.com/dustjs/) (to name just a few) allow you to generate contents from an
-arbirary-length string representing a template.
+arbirary-length string template.
  
 ```html
 <head>
