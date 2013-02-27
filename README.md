@@ -73,10 +73,9 @@ elemet you would like to place the generated contents.
 <html>
 
 <head>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
-	<script type="text/javascript" src="fuzzy-fenek.js"></script>
-
+	<!--
+		Omitting the inclusion of *.js file for clarity reason.
+	-->
 	<script type="text/javascript">
 		var template = "Hello Mr. {{ name }}";
 		binder = new TemplateBinder(_t(template), "body");
@@ -92,7 +91,7 @@ elemet you would like to place the generated contents.
 ```
 
 The above code snippet, binds the template 'Hello Mr. {{ name }}' to the `body` element. Each time the method `refresh()`
-is invoked, the template is rendered and the result is placed `body`. You can call as many times as you like to
+is invoked, the template is rendered and the result is placed in the `body` element. You can call as many times as you like to
 `refresh()`, each time with a different name - an action that will replace each time the contents of `body` with
 a new generated content.
 
