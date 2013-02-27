@@ -168,7 +168,7 @@ function isString(obj) {
  *
  * @return jQuery object holding a template contents.
  */
-function t(template) {
+function _t(template) {
     if (!isString(template)) {
         throw "Parameter is not of type 'string'.";
     }

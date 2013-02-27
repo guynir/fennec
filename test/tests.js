@@ -3,7 +3,7 @@
 //
 test("Test inline template.", function() {
 	var template = "Hello, world !!!";
-	var binder = new TemplateBinder(t(template), "#target-block");
+	var binder = new TemplateBinder_(t(template), "#target-block");
 	binder.refresh();
 	var contents = $( "#target-block" ).html().trim();
 
