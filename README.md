@@ -16,50 +16,68 @@ Client-side (Javascript) library that prolificates the work with templating fram
 
 ##Background
 
-Most client-side templating libraries such as [Mustachae](http://mustache.github.com/),
+Most client-side templating libraries such as [Mustache](http://mustache.github.com/),
 [underscore.js](http://www.underscorejs.org), [Handlerbars](http://handlebarsjs.com/) and
-[dust.js](http://akdubya.github.com/dustjs/) (to name just a few) allow you to provide an arbirary-length string
- containing the template and generate a output text as response:
+[dust.js](http://akdubya.github.com/dustjs/) (to name just a few) allow you to generate contents from an
+arbirary-length string representing a template.
  
 ```html
-<head></head>
-```
-
-##What _fuzzy-fenek_ is all about?
-
-Most 'best practices' and even the tutorials themselves of main-stream templating frameworks suggest
-splitting template from the body itself:
-
-```html
 <head>
-	<script type="text/javascript">
-		
-		$(document).ready(function() {
-			//
-			// Fetch the template from a dedicated out-of-body-element and generate markup.
-			//
-			var source = $( 'hello-template' ).html();
-			var template = Handlebars.compile(source);
-			var generated = template({ name: 'Guy' });
-			
-			// Add it to the body.
-			$( '.container' ).appendChild( $( generated) );
-		});
-
+	<script type="text/template" id="hello-world-template">
+		Hello Mr. {{name}},<br>
+		This is a sample Mustachae/Handlebars compatible template section.<br>
 	</script>
 	
-	<!-- Template snippet -->
-	<script type="text/template" id="hello-template">
-		<span>Hello, {{name}}. How are you ?
+	<script type="text/javascript">
+		var model = {
+			name: 'Guy'
+		}
+		
+		$(document).ready(function() {
+			// [1] Fetch contents of template.
+			var source = $( "#hello-world-template" ).html();
+		
+			// [2] Compile template.
+			var template = Handlebars.compile(source);
+		
+			// [3] Generate contents from template.
+			var contents = template(model);
+		
+			// [4] Add contents to body.
+			$( body ).append( contents );
+		}
 	</script>
 </head>
 
 <body>
-	<div class="container">
-		
-	</div>
 </body>
 ```
+A typical flow of using client-side templating is:
+
+1. Fetch the markup of text from somewhere in the body.
+2. Compile or otherwise process the template. Not all templating libraries require a compilation phase.
+3. Generate contents out of a given template, using a model of information.
+4. Place generated contents inside the body to be visible to the user.
+
+This typical flow occurs for almost all cases of using client-side templating libraries. Wouldn't it be simpler to
+have someone do it for you ?
+
+##What _fuzzy-fenek_ is all about?
+
+_Fuzzy Fenek_ is a lightweight Javascript library that allows you to tie between a template, a model and a target DOM
+elemet you would like to place the generated contents.
+
+```html
+<script type="text/javascript">
+	var template = "Hello Mr. {{ name }}";
+	var binder = new TemplateBinder(_t(template), "body");
+	
+	binder.refresh( { name: "Guy" } );
+</script>
+```
+
+Using <pre>TemplateBinder</pre> as with the snippet above, the developer can now issue the call to 
+
 
 While this practice is very useful and even _THE_ preferred one in some cases, it is hard to apply
 such a solution on an entire page. The markup is than split to multiple snippets which becomes unreadable
