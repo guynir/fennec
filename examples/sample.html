@@ -20,7 +20,7 @@
 		//
 		$( document ).ready(function() {
 			// Create a new template agent.
-			agent = new TemplateAgent(".container");
+			agent = new TemplateBinder(".container");
 
 			// Refresh the template. If we are not doing so, we are expected to see the template's meta-code, such as {{name}}, {{#if}}, ....
 			// Try to comment this line, refresh the page and see what comes up.
@@ -33,7 +33,7 @@
 		 */
 		function applyNewName(theName) {
 			// Tell agent to apply a new value and refresh.
-			agent.applyAndRefresh({name: theName});
+			agent.refresh({name: theName});
 		}
 	</script>
 
