@@ -5,15 +5,14 @@
 //
 
 /**
- * Template binder tie between a template and an actual DOM element. When a caller invokes a refresh or render request,
+ * Template binder ties between a template and an actual DOM element. When a caller invokes a refresh or render request,
  * the template is processed, a new content is generated and inserted inside a target DOM element.
  *
  * The constructor have 3 parameters:
- *  - source:   Represents the source from-which template is read. If this parameter is string,
+ *  - source:   Represents the source of the template. If this parameter is string,
  *              it is treated as jQuery selector and converted to actual jQuery object.
  *  - target:   Optional parameter that represents a target DOM element to place information in.
- *              If this parameter is omitted or is null, 'source' is assigned to it. In such case,
- *              the same DOM element is treated both as a template and a target container.
+ *              If this parameter is omitted or is null, 'source' is treated as both the source DOM element and the target one.
  *  - model:    Optional parameter that represents a model (context); if this parameter is not specified,
  *              an internal model is allocated for the binder.
  *
