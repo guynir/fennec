@@ -3,7 +3,7 @@
 //
 test("Test inline template.", function() {
 	var template = "Hello, world !!!";
-	var binder = new TemplateBinder_(t(template), "#target-block");
+	var binder = new Fennec(_t(template), "#target-block");
 	binder.refresh();
 	var contents = $( "#target-block" ).html().trim();
 
@@ -15,7 +15,7 @@ test("Test inline template.", function() {
 //
 test("Test template fetched from actual DOM element.", function() {
 	var message = "Hello, world !!!";
-	var binder = new TemplateBinder("#template-block", "#target-block");
+	var binder = new Fennec("#template-block", "#target-block");
 	binder.refresh({ message: message });
 	var contents = $( "#target-block" ).html().trim();
 
@@ -27,10 +27,10 @@ test("Test template fetched from actual DOM element.", function() {
 // element as 'source'.
 //
 test("'target' is the same as 'source' when it is not explicitly specified.", function() {
-	var binder = new TemplateBinder("#target-block");
+	var binder = new Fennec("#target-block");
 	equal (binder.tagret, binder.source, "Checking that source and target point to the same element when 'target' is 'undefined'." );
 
-	binder = new TemplateBinder("#target-block", null);
+	binder = new Fennec("#target-block", null);
 	equal (binder.tagret, binder.source, "Checking that source and target point to the same element when 'target' is 'null'." );
 });
 
@@ -39,7 +39,7 @@ test("'target' is the same as 'source' when it is not explicitly specified.", fu
 //
 test("Template block is also the target.", function() {
 	var message = "Hello, world !!!";
-	var binder = new TemplateBinder("#template-block");
+	var binder = new Fennec("#template-block");
 	binder.refresh({ message: message });
 
 	var contents = $( "#template-block" ).html();
@@ -51,7 +51,7 @@ test("Template binding with external model.", function() {
 	var message2 = "Hello to you too !!!";
 
 	var model = { message : message1 };
-	var binder = new TemplateBinder("#template-block", "#target-block", model);
+	var binder = new Fennec("#template-block", "#target-block", model);
 
 	binder.refresh();
 	equal ($( "#template-block" ).html().trim(), message1, "Test generated contents with external model.");

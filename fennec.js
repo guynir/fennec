@@ -1,14 +1,15 @@
 //
-//		fuzzy-fenek V0.5
+//		Fennec V0.6
 //		Copyright (c) 2013 by Guy Raz Nir
 //		This software is distributed under MIT license.
 //
 
 /**
- * Template binder ties between a template and an actual DOM element. When a caller invokes a refresh or render request,
- * the template is processed, a new content is generated and inserted inside a target DOM element.
+ * Fennec is a utility object that binds between a template, Handlebars templating library and an actual
+ * DOM element. When a caller invokes a refresh or render request, the template is processed, a new content
+ * is generated and inserted into the target DOM element.
  *
- * The constructor have 3 parameters:
+ * The constructor accepts 3 parameters:
  *  - source:   Represents the source of the template. If this parameter is string,
  *              it is treated as jQuery selector and converted to actual jQuery object.
  *  - target:   Optional parameter that represents a target DOM element to place information in.
@@ -21,10 +22,10 @@
  * @param model [optional] An external model to work with.
  * @constructor
  */
-function TemplateBinder(source, target, model) {
+function Fennec(source, target, model) {
 
     // Library version.
-    this.VERSION = '0.5';
+    this.VERSION = '0.6';
     
     // Holds the 'target' element.
     this.target = null;
@@ -95,7 +96,7 @@ function TemplateBinder(source, target, model) {
  *
  * @param context Context with properties to replace on template.
  */
-TemplateBinder.prototype.renderWith = function (context) {
+Fennec.prototype.renderWith = function (context) {
     // Generate a new markup from template.
     var produced = this.template(context);
 
@@ -112,7 +113,7 @@ TemplateBinder.prototype.renderWith = function (context) {
  *
  * @param model Optional model (may be 'null' or 'undefined') to update our internal one.
  */
-TemplateBinder.prototype.refresh = function(model) {
+Fennec.prototype.refresh = function(model) {
     // If model is a non-empty, copy its fields into our own model.
     if (!isUndefined(model)) {
         for (var property in model) {
@@ -128,7 +129,7 @@ TemplateBinder.prototype.refresh = function(model) {
  * Validate that all library dependencies are available and satisfy requirements. Error messages are sent to browser's console.
  * @return { BOOLEAN } 'true' if validation is successful, 'false' if dependency is missing.
  */
-TemplateBinder.prototype.validateRequirements = function() {
+Fennec.prototype.validateRequirements = function() {
 	var succes = true;
 
     if (typeof jQuery == 'undefined') {
