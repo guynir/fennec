@@ -195,9 +195,14 @@ td {
 	background: #ccc;
  }
 
+/* Master header */
+.master-header {
+  width: 100%;
+}
 
 /* Wrapper */
 .wrapper {
+  padding-top: 60px;
   width:960px;
 }
 
