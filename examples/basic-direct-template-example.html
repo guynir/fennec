@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<!-- Load dependencies -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+
+	<!-- Load fuzzy-fenek library -->
+	<script type="text/javascript" src="../fennec.js"></script>
+
+	<script type="text/javascript">
+		// Reference to the binder.
+		var binder;
+
+		$( document ).ready(function() {
+			// Create a new template binder and render it.
+			binder = new Fennec("#time-message", "#messageDiv");
+			refresh( { time : getTime() } );
+		});
+
+		function getTime() {
+			return new Date().toTimeString();
+		}
+	</script>
+</head>
+
+<body>
+	<div id="messageDiv">
+		The time now is {{time}}.
+	</div>
+	<p>
+	<input type="button" onclick="refresh( { time : getTime() });" value="Refresh">
+</body>
+
+</html>
