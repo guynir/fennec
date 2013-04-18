@@ -47,11 +47,11 @@ Here is a simple example:
 		</span>
 		<form id="form">
 			<label>
-				{{ #if name" }}
+				{{ "{{ #if name" }} }}
 				You can change your name:
-				{{ else }}
+				{{ "{{ else" }} }}
 				Please tell me your name:
-				{{ /if }}
+				{{ "{{ /if" }} }}
 			</label>
 			<input type="text" id="name">
 			<input type="button"
