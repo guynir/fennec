@@ -8,7 +8,9 @@ _Fennec_ is a small Javascript library that provides you - the client-side devel
 
 Let's have a look at the following example:
 (I removed some elements for the sake of clarity).
-{% highlight html %}
+
+
+```html
 <html>
 
 <head>
@@ -55,7 +57,7 @@ Let's have a look at the following example:
 </body>
 
 </html>
-{% endhighlight %}
+```
 
 The body itself contains a simple template in a syntax supported by [Mustache](http://mustache.github.io/) and [Handlebars](http://handlebarsjs.com/).
 
