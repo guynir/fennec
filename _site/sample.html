@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Fennec : The way nature intended us to use templating." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Fennec</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/guynir/fennec">View on GitHub</a>
+
+          <h1 id="project_title">Fennec</h1>
+          <h2 id="project_tagline">The way nature intended us to use templating.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/guynir/fennec/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/guynir/fennec/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h1>What Fennec is all about</h1>
+
+<p><em>Fennec</em> is a small Javascript library that provides you - the client-side developer - a boilerplate code you will typically need in your code, when working with logic-less template libraries such as <a href="http://mustache.github.io/">Mustahe</a>, <a href="http://handlebarsjs.com/">Handlebars</a>, <a href="https://github.com/jquery/jquery-tmpl">jQuery template</a>, <a href="http://akdubya.github.io/dustjs/">dust.js</a>, [Underscore JS template] (http://underscorejs.org/#template) and many others.</p>
+
+<p>Let's have a look at the following example:
+(I removed some elements for the sake of clarity).
+```html
+<html></p>
+
+<p><head></p>
+
+<pre><code>// Import here jQuery 1.8+, Handlerbars and Fennec libraries.
+
+&lt;script type="text/javascript"&gt;
+    // Reference to agent.
+    var agent;
+    $( document ).ready(function() {
+        // Create a new template agent.
+        agent = new TemplateBinder(".container");
+        agent.refresh();
+    });
+
+    function applyNewName(theName) {
+        agent.refresh({name: theName});
+    }
+&lt;/script&gt;
+</code></pre>
+
+<p></head></p>
+
+<p><body></p>
+
+<pre><code>&lt;div class="container"&gt;
+    &lt;span&gt;
+
+            Hello  ! Very pleased to meet you !!!
+
+            Hello Mr., I don't know your name.
+
+    &lt;/span&gt;
+    &lt;form id="form"&gt;
+        &lt;label&gt;
+
+            You can change your name:
+
+            Please tell me your name:
+
+        &lt;/label&gt;
+        &lt;input type="text" id="name"&gt;
+        &lt;input type="button"
+            onclick="applyNewName(this.form.name.value)"
+            value="Change"&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p></body></p>
+
+<p></html>
+```</p>
+
+<p>The body itself contains a simple template in a syntax supported by <a href="http://mustache.github.io/">Mustache</a> and <a href="http://handlebarsjs.com/">Handlebars</a>.</p>
+
+<p>The idea is simple: Every time we call <code>applyNewName()</code> with a new string representing a name, the body is rendered and new values are applied.
+You can download the code from <a href="https://github.com/guynir/fennec/blob/master/examples/sample.html">this example</a> at GitHub.</p>
+
+<h1>Why do I need <em>Fennec</em> ?</h1>
+
+<p>The big question.</p>
+
+<p>Very simple: <em>Fennec</em> provides two core elements:</p>
+
+<p>Firstly, the .js file itself with some boilerplate code you'll probably need in your own web application to tie between a template and a target DOM.</p>
+
+<p>Every template you'll generate is intended to be placed inside a DOM element (e.g.: <code>body</code> or <code>div</code>).
+Since most template libraries does not provide such a functionality, you will need either to write it yourself or alternatively, import it from outside - hence the <em>Fennec</em> library.</p>
+
+<p>Secondly, <em>Fennec</em> library comes with a lot of knowledge embedded inside it. It introduces new ways to work with templates and make their usage much more simpler and intuitive.</p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Fennec maintained by <a href="https://github.com/guynir">guynir</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
