@@ -12,7 +12,7 @@ _Fennec_ is a small Javascript library that simplifies the work in HTML/Javascri
 [dust.js](http://akdubya.github.io/dustjs/),
 [Underscore JS template] (http://underscorejs.org/#template) and many others.
 
-If you're not sure how things can be simpler than they are today, look at the following example and read the [Why do I need _Fennec_ ?] (#why-do-i-need-fennec) section.
+If you're not sure how things can be simpler than they are today, look at the following example and read the [Why do I need _Fennec_ ?] (#why-do-i-need-fennec-) section.
 
 Here is a simple example:
 
@@ -72,10 +72,8 @@ You can download the code from [this example](https://github.com/guynir/fennec/b
 
 # Why do I need _Fennec_ ?
 
-_Fennec_ is here to serve 2 core reasons:
-Firstly, the .js file itself has a boilerplate code you'll probably need in your own web application to tie between a template and a target DOM.
+Most importantly, _Fennec_ introduces a new way of working with client-side templating. It harness an old known solution in this modern world.
 
-Almost every template you'll generate is likely to end up in a DOM element (e.g.: `body`, `div`).
-Since most template libraries does not provide such a functionality, you will need either to write it yourself or alternatively, import it from outside - hence the _Fennec_ library.
+There is a lot of reading about it in an [external blog] (#), however it is suffice to say that if you ever worked with client-side template library, you've noticed the difference in the example above.
 
-Secondly, _Fennec_ library comes with a lot of knowledge embedded inside it. It introduces new ways to work with templates and make their usage much more simpler and intuitive.
+Beyond the introduction above, almost all generated contents of client-side template library you will use will end up inside a DOM element (e.g.: `body`, `div` and even `script` element); therefore, you need to write a code to tie between the output of the library and the target DOM. _Fennec_ does just that! It provides a convenient way to tie between a template, a templating-engine and a target DOM.
