@@ -36,61 +36,56 @@
 <p><em>Fennec</em> is a small Javascript library that provides you - the client-side developer - a boilerplate code you will typically need in your code, when working with logic-less template libraries such as <a href="http://mustache.github.io/">Mustahe</a>, <a href="http://handlebarsjs.com/">Handlebars</a>, <a href="https://github.com/jquery/jquery-tmpl">jQuery template</a>, <a href="http://akdubya.github.io/dustjs/">dust.js</a>, [Underscore JS template] (http://underscorejs.org/#template) and many others.</p>
 
 <p>Let's have a look at the following example:
-(I removed some elements for the sake of clarity).
-```html
-<html></p>
+(I removed some elements for the sake of clarity).</p>
 
-<p><head></p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
 
-<pre><code>// Import here jQuery 1.8+, Handlerbars and Fennec libraries.
+<span class="nt">&lt;head&gt;</span>
+    // Import here jQuery 1.8+, Handlerbars and Fennec libraries.
 
-&lt;script type="text/javascript"&gt;
-    // Reference to agent.
-    var agent;
-    $( document ).ready(function() {
-        // Create a new template agent.
-        agent = new TemplateBinder(".container");
-        agent.refresh();
-    });
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="c1">// Reference to agent.</span>
+        <span class="kd">var</span> <span class="nx">agent</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// Create a new template agent.</span>
+            <span class="nx">agent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TemplateBinder</span><span class="p">(</span><span class="s2">&quot;.container&quot;</span><span class="p">);</span>
+            <span class="nx">agent</span><span class="p">.</span><span class="nx">refresh</span><span class="p">();</span>
+        <span class="p">});</span>
 
-    function applyNewName(theName) {
-        agent.refresh({name: theName});
-    }
-&lt;/script&gt;
-</code></pre>
+        <span class="kd">function</span> <span class="nx">applyNewName</span><span class="p">(</span><span class="nx">theName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">agent</span><span class="p">.</span><span class="nx">refresh</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">theName</span><span class="p">});</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 
-<p></head></p>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span&gt;</span>
+            {{#if name }}
+                Hello  ! Very pleased to meet you !!!
+            {{else }}
+                Hello Mr., I don&#39;t know your name.
+            {{/if }}
+        <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;form&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;label&gt;</span>
+                {{#if name }}
+                You can change your name:
+                {{else }}
+                Please tell me your name:
+                {{/if }}
+            <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">id=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span>
+                <span class="na">onclick=</span><span class="s">&quot;applyNewName(this.form.name.value)&quot;</span>
+                <span class="na">value=</span><span class="s">&quot;Change&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
 
-<p><body></p>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
-<pre><code>&lt;div class="container"&gt;
-    &lt;span&gt;
-
-            Hello  ! Very pleased to meet you !!!
-
-            Hello Mr., I don't know your name.
-
-    &lt;/span&gt;
-    &lt;form id="form"&gt;
-        &lt;label&gt;
-
-            You can change your name:
-
-            Please tell me your name:
-
-        &lt;/label&gt;
-        &lt;input type="text" id="name"&gt;
-        &lt;input type="button"
-            onclick="applyNewName(this.form.name.value)"
-            value="Change"&gt;
-    &lt;/form&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p></body></p>
-
-<p></html>
-```</p>
 
 <p>The body itself contains a simple template in a syntax supported by <a href="http://mustache.github.io/">Mustache</a> and <a href="http://handlebarsjs.com/">Handlebars</a>.</p>
 

@@ -8,7 +8,7 @@ _Fennec_ is a small Javascript library that provides you - the client-side devel
 
 Let's have a look at the following example:
 (I removed some elements for the sake of clarity).
-```html
+{% highlight html %}
 <html>
 
 <head>
@@ -32,19 +32,19 @@ Let's have a look at the following example:
 <body>
 	<div class="container">
 		<span>
-			{{#if name}}
+			{{ "{{#if name"}} }}
 				Hello {{name}} ! Very pleased to meet you !!!
-			{{else}}
+			{{ "{{else"}} }}
 				Hello Mr., I don't know your name.
-			{{/if}}
+			{{ "{{/if" }} }}
 		</span>
 		<form id="form">
 			<label>
-				{{#if name}}
+				{{ "{{#if name" }} }}
 				You can change your name:
-				{{else}}
+				{{ "{{else"}} }}
 				Please tell me your name:
-				{{/if}}
+				{{ "{{/if"}} }}
 			</label>
 			<input type="text" id="name">
 			<input type="button"
@@ -55,7 +55,7 @@ Let's have a look at the following example:
 </body>
 
 </html>
-```
+{% endhighlight %}
 
 The body itself contains a simple template in a syntax supported by [Mustache](http://mustache.github.io/) and [Handlebars](http://handlebarsjs.com/).
 
