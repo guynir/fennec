@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+```html
+<div></div>
+```
 
 # What Fennec is all about
 
