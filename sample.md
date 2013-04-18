@@ -39,7 +39,7 @@ Here is a simple example:
 <body>
 	<div class="container">
 		<span>
-			{{ "{{" #if name }} }}
+			{{ "{{ #if name" }} }}
 			Hello {{ "{{ name" }} }}! Very pleased to meet you !!!
 			{{ "{{ else" }} }}
 			Hello Mr., I don't know your name.
