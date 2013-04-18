@@ -1,5 +1,6 @@
 ---
 layout: default
+markdown: redcarpet
 ---
 ```html
 <div></div>
