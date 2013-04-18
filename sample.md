@@ -3,18 +3,22 @@ layout: default
 
 ---
 
-# What Fennec is all about
+# What _Fennec_ is all about
 
-_Fennec_ is a small Javascript library that provides you - the client-side developer - a boilerplate code you will typically need in your code, when working with logic-less template libraries such as [Mustahe](http://mustache.github.io/), [Handlebars](http://handlebarsjs.com/), [jQuery template](https://github.com/jquery/jquery-tmpl), [dust.js](http://akdubya.github.io/dustjs/), [Underscore JS template] (http://underscorejs.org/#template) and many others.
+_Fennec_ is a small Javascript library that provides the boilerplate code a developer will typically need in
+a HTML/Javascript application, when working with logic-less template libraries such as
+[Mustahe](http://mustache.github.io/), [Handlebars](http://handlebarsjs.com/),
+[jQuery template](https://github.com/jquery/jquery-tmpl),
+[dust.js](http://akdubya.github.io/dustjs/),
+[Underscore JS template] (http://underscorejs.org/#template) and many others.
 
-Let's have a look at the following example:
-(I removed some elements for the sake of clarity).
+Here is a simple example:
 
 ```html
 <html>
 
 <head>
-	// Import here jQuery 1.8+, Handlerbars and Fennec libraries.
+	// Don't forget to import externals: jQuery 1.8+, Handlerbars 1.0+ and Fennec.
 
 	<script type="text/javascript">
 		// Reference to agent.
@@ -34,19 +38,19 @@ Let's have a look at the following example:
 <body>
 	<div class="container">
 		<span>
-			{{ "{{#if name"}} }}
-				Hello {{name}} ! Very pleased to meet you !!!
-			{{ "{{else"}} }}
-				Hello Mr., I don't know your name.
-			{{ "{{/if" }} }}
+			{{ #if name }}
+			Hello {{ name }} ! Very pleased to meet you !!!
+			{{ else }}
+			Hello Mr., I don't know your name.
+			{{ /if }}
 		</span>
 		<form id="form">
 			<label>
-				{{ "{{#if name" }} }}
+				{{ #if name" }}
 				You can change your name:
-				{{ "{{else"}} }}
+				{{ else }}
 				Please tell me your name:
-				{{ "{{/if"}} }}
+				{{ /if }}
 			</label>
 			<input type="text" id="name">
 			<input type="button"
