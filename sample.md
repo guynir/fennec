@@ -9,8 +9,7 @@ _Fennec_ is a small Javascript library that provides you - the client-side devel
 Let's have a look at the following example:
 (I removed some elements for the sake of clarity).
 
-
-```html
+```
 <html>
 
 <head>
