@@ -38,7 +38,7 @@ Here is a simple example:
 <body>
 	<div class="container">
 		<span>
-			{{ #if name }}
+			{{ "{{" #if name }}
 			Hello {{ name }} ! Very pleased to meet you !!!
 			{{ else }}
 			Hello Mr., I don't know your name.
@@ -81,5 +81,3 @@ Every template you'll generate is intended to be placed inside a DOM element (e.
 Since most template libraries does not provide such a functionality, you will need either to write it yourself or alternatively, import it from outside - hence the _Fennec_ library.
 
 Secondly, _Fennec_ library comes with a lot of knowledge embedded inside it. It introduces new ways to work with templates and make their usage much more simpler and intuitive.
-
-
