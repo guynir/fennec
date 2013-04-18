@@ -6,12 +6,13 @@ published: false
 
 # What _Fennec_ is all about
 
-_Fennec_ is a small Javascript library that provides the boilerplate code a developer will typically need in
-a HTML/Javascript application, when working with logic-less template libraries such as
+_Fennec_ is a small Javascript library that simplifies the work in HTML/Javascript application when working with logic-less template libraries such as
 [Mustahe](http://mustache.github.io/), [Handlebars](http://handlebarsjs.com/),
 [jQuery template](https://github.com/jquery/jquery-tmpl),
 [dust.js](http://akdubya.github.io/dustjs/),
 [Underscore JS template] (http://underscorejs.org/#template) and many others.
+
+If you're not sure how things can be simpler than they are today, look at the following example and read the [Why do I need _Fennec_ ?] (#why-do-i-need-fennec) section.
 
 Here is a simple example:
 
@@ -66,19 +67,15 @@ Here is a simple example:
 
 The body itself contains a simple template in a syntax supported by [Mustache](http://mustache.github.io/) and [Handlebars](http://handlebarsjs.com/).
 
-The idea is simple: Every time we call `applyNewName()` with a new string representing a name, the body is rendered and new values are applied.
+The idea is simple: Every time we call `applyNewName()` function with a new string (representing a person's name), the body is rendered, new values are applied and a new content is placed in the `body` element.
 You can download the code from [this example](https://github.com/guynir/fennec/blob/master/examples/sample.html) at GitHub.
 
 # Why do I need _Fennec_ ?
 
-The big question.
+_Fennec_ is here to serve 2 core reasons:
+Firstly, the .js file itself has a boilerplate code you'll probably need in your own web application to tie between a template and a target DOM.
 
-Very simple: _Fennec_ provides two core elements:
-
-
-Firstly, the .js file itself with some boilerplate code you'll probably need in your own web application to tie between a template and a target DOM.
-
-Every template you'll generate is intended to be placed inside a DOM element (e.g.: `body` or `div`).
+Almost every template you'll generate is likely to end up in a DOM element (e.g.: `body`, `div`).
 Since most template libraries does not provide such a functionality, you will need either to write it yourself or alternatively, import it from outside - hence the _Fennec_ library.
 
 Secondly, _Fennec_ library comes with a lot of knowledge embedded inside it. It introduces new ways to work with templates and make their usage much more simpler and intuitive.
