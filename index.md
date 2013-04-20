@@ -125,9 +125,12 @@ To better understand what _Fennec_ provides, lets look the the following example
 The above code has the following 4 core elements:
 
 1. Fetch the source template we want to generate contents-from later on.
-	Take a special look at the location of the block itself - it is placed within a general-purpose `script` element, outside the scope of the `body`. Though it is not mandatory and not everyone uses to idiom, most tutorials and some major open-source projects reviewed uses this convention.
-2. Compile the template. This is not a mandatory phase; some use it others don't.
+Take a special look at the location of the block itself - it is placed within a `script` element, outside the scope of the `body`. It is a convention recommended by a large group of community tutorials, however, we do not recommend it as a convention (we recommend it for special cases only).
+
+2. Compile the template. This is not a mandatory phase; some use it, others don't.
+
 3. When required, the template is translated into an actual text with a given context (in our context, we have a single attributed name `theName` which accepts a string holding a person's name).
+
 4. We insert the HTML generated at the previous phase into a `div` designated in the body section.
 
 Now, let's look at the same example using _Fennec_:
@@ -170,7 +173,10 @@ Now, let's look at the same example using _Fennec_:
 ```
 
 Let's review our example above:
+
 1. Create an agent and associate it with a DOM element.
+
 2. Refresh the contents (explained later on).
+
 3. Whenever someone calls `applyMessage` function, the agent refresh the contents and pushes it back into the message-container `div`.
 
