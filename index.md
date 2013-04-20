@@ -126,8 +126,11 @@ The above code has the following 4 core elements:
 1. Fetch the source template we want to generate contents-from later on. Typically, such a block is much larger and contains tens and hundreds of elements.
 Take a special look at the location of the block itself - it is placed within a general-purpose `script` element, outside the scope of the `body`.
 Though it is not mandatory and not everyone uses to idiom, most tutorials and some major open-source projects reviewed uses this convention.
+
 2. Compile the template. This is not a mandatory phase; some use it others don't.
+
 3. When required, the template is translated into an actual text with a given context (in our context, we have a single attributed name `theName` which accepts a string holding a person's name).
+
 4. We insert the HTML generated at the previous phase into a `div` designated in the body section.
 
 Now, let's look at the same example using _Fennec_:
