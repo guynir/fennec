@@ -117,8 +117,116 @@ Secondly, HTML authers, who build HTML pages and leave Javascript programming to
 
 Thirdly, HTML-oriented editors can assist developers to be more productive while using this approach. When the template is placed in a detached `script` element, as smart as an editor can be, it cannot guest the final location of the generate template; however, in this approach, editors CAN understand the template's place.
 
+It is important to note, however, that the above implementation can only be run once. After the first execution, the template is erased an a static HTML block is inserted insted of it.
+If we run the function `updateTime()` for the second time with different values, nothing will happen.
+
 The story of _Fennec_
 ---------------------
-The _Fennec_ library was created to address two issues:
+The _Fennec_ library was created to address or serve two issues:
 
-1. 
+1. Provide an implementation that eases the work with client-side template libraries.
+2. Provide better practices and knowledge base for working with templating.
+
+_Fennec_ provides an implementation in Javascript that adheres to the first bullet. It allows the library user to
+specify a DOM element that contains template.
+
+As for the second bullet, _Fennec_'s implementation and ecosystem provide a great place to publish and propogate
+best-practices and knowledge sharing.
+
+Let's look at how can one use _Fennec_, based on the sample above:
+
+```javascript
+// Call during init time to bind between Fennec and a source/target DOM element.
+var binder = new TemplateBinder( "#time-div" );
+
+function updateTime(theHour, theMinute, theSecond, periodOfDay) {
+
+	var context = {
+		hour: theHour,
+		minute: theMinute,
+		seconds: theSeconds,
+		period_of_day: periodOfDay
+	}
+	
+	binder.refresh(context);
+	
+}
+```
+
+For those who wish to still separate between the template and the target location, _Fennec_ also provides facilities:
+
+```html
+<head>
+	<script type="text/javascript">
+		var binder = new TemplateBinder( "#time-message", "#time-div" );
+	
+		<script type="text/javascript">
+
+			function updateTime(theHour, theMinute, theSecond, periodOfDay) {
+				var context = {
+					hour: theHour,
+					minute: theMinute,
+					seconds: theSeconds,
+					period_of_day: periodOfDay
+				}
+	
+				binder.refresh(context);
+
+			}
+		</script>
+	</script>
+	
+	<script id="time-template" type="text/template">
+		It is now {{hour}}:{{minute}}:{{seconds}} in the {{period_of_day}}.
+	</script>
+	
+</head>
+
+<body>
+	<div id="time-div">
+	</div>
+</body>
+
+```
+
+Notice that the fact that we separate the source template element from the target placeholder required us to change only
+the initialization of the binder and nothing else.
+
+What if we have a simple string (like in our example above) and we do not want to explode our code with a lot of
+`script` elements ? _Fennec_ provides a simple way to accommodate that as well:
+
+```html
+<head>
+	<script type="text/javascript">
+		var theTemplate = "It is now {{hour}}:{{minute}}:{{seconds}} in the {{period_of_day}}.";
+		var binder = new TemplateBinder( _t(theTemplate), "#time-div" );
+	
+		<script type="text/javascript">
+
+			function updateTime(theHour, theMinute, theSecond, periodOfDay) {
+				var context = {
+					hour: theHour,
+					minute: theMinute,
+					seconds: theSeconds,
+					period_of_day: periodOfDay
+				}
+	
+				binder.refresh(context);
+
+			}
+		</script>
+	</script>
+</head>
+
+<body>
+	<div id="time-div">
+	</div>
+</body>
+
+```
+
+_Fennec_ provides a simple function `_t()` that accepts a string representing a template and generates a pseudo element
+for it. It is a shortcut for times when we have short templates.
+
+
+
