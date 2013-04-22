@@ -1,5 +1,8 @@
 Why _Fennec_ ?
 ==============
+
+Background
+----------
 To understand why should we use _Fennec_ and why _Fennec_ was created, we need to review some of the conventions already
 adopted and used in the community and their drawbacks.
 
@@ -114,3 +117,8 @@ Secondly, HTML authers, who build HTML pages and leave Javascript programming to
 
 Thirdly, HTML-oriented editors can assist developers to be more productive while using this approach. When the template is placed in a detached `script` element, as smart as an editor can be, it cannot guest the final location of the generate template; however, in this approach, editors CAN understand the template's place.
 
+The story of _Fennec_
+---------------------
+The _Fennec_ library was created to address two issues:
+
+1. 
