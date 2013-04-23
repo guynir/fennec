@@ -74,6 +74,7 @@ We can observe leading elements:
 This approach, while preferred for for some cases - is the least preferred one for most cases.
 
 Let us explore a different solution:
+
 ```html
 
 <html>
