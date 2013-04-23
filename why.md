@@ -1,6 +1,9 @@
 ---
 layout: default
+
+published: false
 ---
+
 Why _Fennec_ ?
 ==============
 
@@ -17,8 +20,8 @@ Since client-side templating is a re-born idea (an idea that existed for a long 
 new attempts are made by the community to generate _best practices_ for this notion.
 
 Most tutorials, examples and several sites in production uses the concept of *partials* or *snippets*:
-```html
 
+```html
 <html>
 	
 <head>
