@@ -1,3 +1,6 @@
+---
+layout: default
+---
 Why _Fennec_ ?
 ==============
 
