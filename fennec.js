@@ -25,7 +25,7 @@
 function Fennec(source, target, model) {
 
     // Library version.
-    this.VERSION = '0.6';
+    this.VERSION = '0.61';
     
     // Holds the 'target' element.
     this.target = null;
@@ -89,6 +89,8 @@ function Fennec(source, target, model) {
 
     // If model is valid, use it. Otherwise, create an internal model.
     this.model = !isUndefined(model) ? model : {};
+    
+    this.refresh();
 }
 
 /**
