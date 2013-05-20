@@ -17,7 +17,7 @@ much like [Mustache](http://mustache.github.io/), bravely led us to render conte
 (the _Fennec_ project - of course), is trying to bring HTML/Javascript developers to use some good practices when it comes to dynamic content
 generation on client side.
 
-In general, the _Fennec_ library is a short .js file. It's main contribution comes from the practices it introduces.
+In general, the _Fennec_ library is a minimal .js file backed up by knowledge. It's main contribution comes from the practices it introduces.
 
 Now you can ready the [Background](#background) section.
 
