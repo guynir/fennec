@@ -90,6 +90,7 @@ function Fennec(source, target, model) {
     // If model is valid, use it. Otherwise, create an internal model.
     this.model = !isUndefined(model) ? model : {};
     
+    // Refresh the template after we're ready.
     this.refresh();
 }
 
